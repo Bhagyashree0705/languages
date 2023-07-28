@@ -1,0 +1,71 @@
+<html>
+
+<head>
+	<title> Languages app by kamal sir </title>
+	<style>
+		* {font-size: 70 px;}
+		body{background-color: lightyellow;}
+	</style>
+	<script>	
+	function show()
+	{
+		event.preventDefault();
+		let name= document.getElementById("name");
+		let job= document.getElementById("java");
+		let ms= document.getElementById("js");
+		let mba= document.getElementById("python");
+		let ans= document.getElementById("ans");
+
+		if(name.value=="")
+		{
+			alert("name is empty");
+			ans.innerHTML="";
+			name.focus();
+			return;
+		}
+		else if(name.value.trim()=="")
+		{
+			alert("name cannot be spaces");
+			ans.innerHTML="";
+			name.value="";
+			name.focus();
+			return;	
+		}
+		else if(!name.value.match(/^[A-Za-z]+$/))
+		{
+			alert("name should contain only alpha");
+			ans.innerHTML="";
+			name.value="";
+			name.focus();
+			return;	
+		}
+		
+		let languages= "";
+		if(java.checked)		languages= languages + "Java";
+		if(js.checked)			languages= languages + "Js";
+		if(python.checked)		languages= languages + "Python";			
+
+		let msg= "name = " + name.value + " languages= " + languages;
+		ans.innerHTML = msg;
+		}
+		</script>
+	</head>
+
+	<body>
+	<center>
+		<h1> Languages you know </h1>
+		<form onsubmit="show()"> 
+			<input type="text" placeholder="enter the name"
+	id="name"/>	
+			<br><br>
+			<input type="checkbox" name="c" id="java"/>Java
+			<input type="checkbox" name="c" id="js"/>Js
+			<input type="checkbox" name="c" id="python"/>Python
+			<br><br>
+			<input type="submit"/>
+		</form>
+		<h1 id="ans"/>
+	</center>
+	</body>
+
+	</html>
